@@ -9,5 +9,5 @@ class TypeDocument extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom', 'objet'];
+    protected $fillable = ['nom'];
 }

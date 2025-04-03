@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('attentes', function (Blueprint $table) {
             $table->id();
-            $table->string('dateCreation'); 
-            $table->string('anneeAcademique'); 
-            $table->string('numeroUnique')->unique(); 
-            $table->foreignId('typeDocument_id')->constrained('type_documents')->onUpdate('cascade')->onDelete('cascade'); 
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
+            $table->string('numeroUnique')->unique();
+            $table->string('dateCreation');
+            $table->string('anneeAcademique');
+            $table->string('objet');
+            $table->foreignId('typeDocument_id')->constrained('type_documents')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
