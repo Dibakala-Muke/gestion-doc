@@ -15,8 +15,11 @@ class EtudiantController extends Controller
     // Récupérer tous les étudiants
     public function index()
     {
-        return EtudiantResource::collection(Etudiant::all());
+        $etudiants = Etudiant::all();
+        return EtudiantResource::collection($etudiants);
+
     }
+
 
     // Ajouter un étudiant
     public function store(EtudiantRequest $request)
@@ -27,7 +30,7 @@ class EtudiantController extends Controller
         $user->password = Hash::make($request->password);
         $user->role = 'etudiant';
         $user->save();
-        
+
         $etudiant = new Etudiant();
         $etudiant->nom = $request->nom;
         $etudiant->postnom = $request->postnom;
